@@ -2,12 +2,12 @@
 setlocal
 
 REM Define source and destination paths
-set "source_file=%CD%\SuperhotNoTime.dll"
+set "source_file=%CD%\bin\Debug\netstandard2.1\EasyIrritatedMind.dll"
 echo Starting copying of mod dll to game folder.
 echo Current directory is: %CD%
 
 REM Read the destination folder from the config file
-set /p destination_folder=<..\..\config.txt
+set /p destination_folder=<config.txt
 
 REM Check if the source file exists
 if not exist "%source_file%" (
