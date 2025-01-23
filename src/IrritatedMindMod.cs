@@ -28,7 +28,7 @@ namespace EasyIrritatedMind.src
     {
         public override void OnInitializeMelon()
         {
-            LoggerInstance.Msg($"Easy IrritatedMind Mod has been loaded!");
+            LoggerInstance.Msg($"EasyIrritatedMind Mod has successfully loaded!");
         }
 
         // For removing jumpscares
@@ -85,7 +85,6 @@ namespace EasyIrritatedMind.src
             // Get Class type of GameEnd
             Type gameEndType = __originalMethod.DeclaringType;
 
-            MelonLogger.Warning("Stopwatch deactivate");
             var stopwatchActive = gameEndType.GetField("stopwatchActive", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public);
 
             if (stopwatchActive != null)
@@ -94,81 +93,42 @@ namespace EasyIrritatedMind.src
             }
             else
             {
-                MelonLogger.Msg("Failed to access the member 'stopwatchActive' of GameEnd.");
+                MelonLogger.Error("Failed to access the member 'stopwatchActive' of GameEnd.");
                 return false;
             }
 
             // Mute audio incase the jumpscare makes sound
-            MelonLogger.Warning("Muting Audio");
-
-
 
             var muteAudiosMethod = gameEndType.GetMethod("MuteAudios", BindingFlags.NonPublic | BindingFlags.Instance | BindingFlags.Public, null, new Type[] { }, null);
             muteAudiosMethod.Invoke(__instance, null);
 
-            MelonLogger.Warning("Jumpscare Values set");
             __instance.jumpscare.targetCameraAlpha = 1.0f;
-            __instance.jumpscare.gameObject.SetActive(true);
+            //__instance.jumpscare.gameObject.SetActive(true); // maybe we don't enable it. Lets leave it off. No reason, no, didn't get scared.
 
-            MelonLogger.Warning("Jumpscare Switch");
+            // Lets also not allow the switch to switch, so that it won't auto load the scare.
+
+
             // Switch the tips for the end screen, basically replace any this, to the __instance  (Basically the same since the class is not static)
-            switch (reason)
-            {
-                case GameEnd.DeathReason.LazyDaisy:
-                    __instance.jumpscare.clip = __instance.LazyDaisyJumpscare;
-                    if (__instance.tipText != null)
-                    {
-                        __instance.tipText.text = __instance.GetLocalizedLazyDaisyTip();
-                        break;
-                    }
-                    break;
-                case GameEnd.DeathReason.VentEnemy:
-                    __instance.jumpscare.clip = __instance.VentEnemyJumpscare;
-                    if (__instance.tipText != null)
-                    {
-                        __instance.tipText.text = __instance.GetLocalizedVentTip();
-                        break;
-                    }
-                    break;
-                case GameEnd.DeathReason.FirstEnemy:
-                    __instance.jumpscare.clip = __instance.FirstEnemyJumpscare;
-                    if (__instance.tipText != null)
-                    {
-                        __instance.tipText.text = __instance.GetLocalizedEnemyTip();
-                        break;
-                    }
-                    break;
-                case GameEnd.DeathReason.SecondEnemy:
-                    __instance.jumpscare.clip = __instance.SecondEnemyJumpscare;
-                    if (__instance.tipText != null)
-                    {
-                        __instance.tipText.text = __instance.GetLocalizedEnemyTip();
-                        break;
-                    }
-                    break;
-            }
 
             // Now we check if they had an upgrade and if they survived.
             // This is unforunate, or else we could have skipped the jumpscare function by just calling the DeathCoroutine.
             // Here would be the jumpscare play: this.jumpscare.Play();
 
-            MelonLogger.Warning("Shield Check");
             // We first get the private member shieldWasUsed
             var shieldWasUsed = gameEndType.GetField("shieldWasUsed", BindingFlags.NonPublic | BindingFlags.Instance);
 
             if (shieldWasUsed == null) // Sanity Check
             {
-                MelonLogger.Msg("Failed to access the member 'shieldWasUsed' of GameEnd.");
+                MelonLogger.Error("Failed to access the member 'shieldWasUsed' of GameEnd.");
                 return false;
             }
 
-            MelonLogger.Warning("DeathCoroutine Check");
             // We also need to get the DeathCoroutine to actually call it.
             var DeathCoroutineUncallable = gameEndType.GetMethod("DeathCoroutine", BindingFlags.NonPublic | BindingFlags.Instance);
 
             if (DeathCoroutineUncallable == null) // Sanity Check
             {
-                MelonLogger.Msg("Failed to access the coroutine 'DeathCoroutine' of GameEnd.");
+                MelonLogger.Error("Failed to access the coroutine 'DeathCoroutine' of GameEnd.");
                 return false;
             }
 
@@ -176,11 +136,10 @@ namespace EasyIrritatedMind.src
 
             if (DeathCoroutineUncallable == null) // Sanity Check
             {
-                MelonLogger.Msg("Failed to convert the coroutine 'DeathCoroutine' to a IEnumerator.");
+                MelonLogger.Error("Failed to convert the coroutine 'DeathCoroutine' to a IEnumerator.");
                 return false;
             }
 
-            MelonLogger.Warning("Survived?");
             // Get Value with the given instance and casting it to boolean
             if (!(bool)shieldWasUsed.GetValue(__instance) && __instance.ShieldUpgradeEnabled && UnityEngine.Random.Range(0, 100) < 15)
             {
@@ -205,7 +164,6 @@ namespace EasyIrritatedMind.src
 
                 // Changed to MelonLoaders Coroutines to ensure max safety.
                 //__instance.StartCoroutine(__instance.DeathCoroutine());
-                MelonLogger.Warning("Finish?");
                 MelonLoader.MelonCoroutines.Start(DeathCoroutineIEnumerator);
                 return false;
             }
