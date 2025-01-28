@@ -37,35 +37,6 @@ namespace JumpsacreFreeIrritatedMind.src
         {
             SceneRemover.handleSceneChange(sceneName);
         }
-
-        // Cheats for faster testing
-        public override void OnLateUpdate()
-        {
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                GameObject? player = GameObject.Find("FirstPerson-AIO");
-
-                if (player != null)
-                {
-                    player.GetComponent<FirstPersonAIO>().SetWalkingSpeed(15f);
-                }
-                else
-                {
-                    if (GameObject.Find("FirstPerson-AIO Variant") != null)
-                    {
-                        GameObject.Find("FirstPerson-AIO Variant").GetComponent<FirstPersonAIO>().SetWalkingSpeed(15f);
-                    }
-                    else if (GameObject.Find("FirstPerson-AIO Variant Variant") != null)
-                    {
-                        GameObject.Find("FirstPerson-AIO Variant Variant").GetComponent<FirstPersonAIO>().SetWalkingSpeed(15f);
-                    }
-                    else if (GameObject.Find("FirstPerson-AIO Variant Variant (1)") != null)
-                    {
-                        GameObject.Find("FirstPerson-AIO Variant Variant (1)").GetComponent<FirstPersonAIO>().SetWalkingSpeed(15f);
-                    }
-                }
-            }
-        }
     }
 
 
@@ -109,23 +80,6 @@ namespace JumpsacreFreeIrritatedMind.src
             MelonLoader.MelonCoroutines.Start(enemyAIStartPursuitCoroutine); // Start Chase
 
             return false; // Skip
-        }
-    }
-
-    // Annoying Bird: Numbers
-    [HarmonyLib.HarmonyPatch(typeof(LazyDaisy), "checkNum", new Type[] { typeof(lazyDaisyButton) })]
-    public static class PatchBirdCheckAlwaysCorrect
-    {
-
-        /// <summary>
-        /// Patches the Bird to always accept any input as correct.
-        /// </summary>
-        /// <param name="__originalMethod"> Method which was called (Used to get class type.) </param>
-        /// <param name="__instance"> Caller of function. </param>
-        /// <param name="lazyDaisyButton"> Lazy Daisy Button Pressed </param>
-        private static void Prefix(MethodBase __originalMethod, object __instance, ref lazyDaisyButton lazyDaisyButton)
-        {
-            lazyDaisyButton.rightButton = true;
         }
     }
 
