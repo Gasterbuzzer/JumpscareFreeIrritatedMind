@@ -3,7 +3,7 @@
 A mod that removes all jumpscares from the game.
 Some scenes scripted jumpscares are skipped or just removed.
 This also works for the warehouse jumpscares, which instead just lead to the game over screen.
-Note, none of the functionality has changed, thus you can still earn achievements without any issues.
+Note, none of the functionality has changed, so you can still earn achievements without any issues.
 
 # How to Install:
 1. Download MelonLoader (Automated Installer) from the official website: [MelonLoader Download](https://melonwiki.xyz/#/?id=requirements)
