@@ -2,7 +2,7 @@
 setlocal
 
 REM Define source and destination paths
-set "source_file=%CD%\bin\Debug\netstandard2.1\EasyIrritatedMind.dll"
+set "source_file=%CD%\bin\Debug\netstandard2.1\JumpscareFreeIrritatedMind.dll"
 echo Starting copying of mod dll to game folder.
 echo Current directory is: %CD%
 
