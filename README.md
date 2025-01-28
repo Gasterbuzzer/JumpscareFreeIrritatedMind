@@ -1,8 +1,8 @@
 ﻿# Jumpscare Free Irritated Mind
 
-A mod that removes all jumpscares from the game.
-Some scenes scripted jumpscares are skipped or just removed.
-This also works for the warehouse jumpscares, which instead just lead to the game over screen.
+A mod that removes all jump scares from the game.
+Some scenes scripted jump scares are skipped or just removed.
+This also works for the warehouse jump scares, which instead just lead to the game over screen.
 Note, none of the functionality has changed, so you can still earn achievements without any issues.
 
 # How to Install:
@@ -13,7 +13,8 @@ Note, none of the functionality has changed, so you can still earn achievements 
 3. Run MelonLoader and select **Irritated Mind: Fear of Warehouse** as the game. You can choose any version, however note, that it is best to use the latest.
 Use the installer on **SH.exe** in your Superhot Directory 
 
-4. Move **JumpscareFreeIrritatedMind.dll** (From ﻿[Releases](https://github.com/Gasterbuzzer/JumpscareFreeIrritatedMind/releases)) to the new **Mods** folder in your Games Directory. (To find your directory: Right mouse click the game in Steam with → Manage → Browse Local Files)
+4. Move **JumpscareFreeIrritatedMind.dll** (From ﻿[Releases](https://github.com/Gasterbuzzer/JumpscareFreeIrritatedMind/releases)) to the new **Mods** folder in your Games Directory. You can find your games Mod folder by pressing the folder icon MelonLoader.
+(Alternatively: Right mouse click the game in Steam with → Manage → Browse Local Files)
 
 6. Start your game and enjoy.
 
