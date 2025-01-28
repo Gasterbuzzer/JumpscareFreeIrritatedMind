@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace JumpsacreFreeIrritatedMind.Properties {
+namespace JumpscareFreeIrritatedMind.Properties {
     using System;
     
     

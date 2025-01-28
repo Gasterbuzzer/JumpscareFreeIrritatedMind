@@ -3,7 +3,7 @@ using UnityEngine;
 
 // Class/Namespace for removing any scene objects 
 
-namespace JumpsacreFreeIrritatedMind.src
+namespace JumpscareFreeIrritatedMind.src
 {
     public class SceneRemover
     {

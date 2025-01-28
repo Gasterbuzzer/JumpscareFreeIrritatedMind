@@ -2,27 +2,27 @@
 using System.Collections;
 using System.Reflection;
 using AuraAPI;
-using JumpsacreFreeIrritatedMind.src;
+using JumpscareFreeIrritatedMind.src;
 using MelonLoader;
 using Steamworks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-[assembly: MelonInfo(typeof(IrritatedMindMod), "JumpsacreFreeIrritatedMind", "1.0.0", "Gasterbuzzer", "https://github.com/Gasterbuzzer/JumpsacreFreeIrritatedMind/releases/")]
+[assembly: MelonInfo(typeof(IrritatedMindMod), "JumpscareFreeIrritatedMind", "1.0.0", "Gasterbuzzer", "https://github.com/Gasterbuzzer/JumpscareFreeIrritatedMind/releases/")]
 [assembly: MelonAuthorColor(ConsoleColor.Magenta)]
 [assembly: MelonPriority(99)]
 
-namespace JumpsacreFreeIrritatedMind.src
+namespace JumpscareFreeIrritatedMind.src
 {
 
     public static class BuildInfo
     {
-        public const string Name = "JumpsacreFreeIrritatedMind";
+        public const string Name = "JumpscareFreeIrritatedMind";
         public const string Description = "A mod to make you enjoy the game without being cheaply scared.";
         public const string Author = "Gasterbuzzer";
         public const string Company = null;
         public const string Version = "1.0.0";
-        public const string DownloadLink = "https://github.com/Gasterbuzzer/JumpsacreFreeIrritatedMind/releases/";
+        public const string DownloadLink = "https://github.com/Gasterbuzzer/JumpscareFreeIrritatedMind/releases/";
     }
 
     public class IrritatedMindMod : MelonMod
