@@ -11,7 +11,6 @@ Note, none of the functionality has changed, so you can still earn achievements 
 2. Alternative Download Page: ﻿[MelonLoader Releases](https://github.com/LavaGang/MelonLoader/releases/)
 
 3. Run MelonLoader and select **Irritated Mind: Fear of Warehouse** as the game. You can choose any version, however note, that it is best to use the latest.
-Use the installer on **SH.exe** in your Superhot Directory 
 
 4. Move **JumpscareFreeIrritatedMind.dll** (From ﻿[Releases](https://github.com/Gasterbuzzer/JumpscareFreeIrritatedMind/releases)) to the new **Mods** folder in your Games Directory. You can find your games Mod folder by pressing the folder icon MelonLoader.
 (Alternatively: Right mouse click the game in Steam with → Manage → Browse Local Files)
